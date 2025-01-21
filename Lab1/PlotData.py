@@ -82,4 +82,48 @@ class multiplePlots:
         self.leftSpeed = 0
         self.rightSpeed = 0
         self.ini_pos_left = 0
-        self.ini_pos_right = 0
+        self.ini_pos_right = 0 
+    
+    # Measure the speed of the robot
+    def getSpeed(self):
+        if (time.time() >= self.tf):
+            self.tf = time.time() + self.sampleTime
+            self.leftSpeed = (self.leftEncoderCount.getTotalDistance() -
+                              self.ini_pos_left) / self.sampleTime
+            self.rightSpeed = (self.rightEncoderCount.getTotalDistance() -
+                               self.ini_pos_right) / self.sampleTime
+            self.ini_pos_left = self.leftEncoderCount.getTotalDistance()
+            self.ini_pos_right = self.rightEncoderCount.getTotalDistance()
+    
+    def teste(self):
+        return self.xmax, self.yp1
+    
+    def updateData(self):
+        self.totLeftDist = self.leftEncoderCount.getTotalDistance()
+        self.totRightDist = self.rightEncoderCount.getTotalDistance()
+
+        self.getSpeed()
+
+        self.yp1 = append(self.yp1, self.totLeftDist)
+        self.yv1 = append(self.yv1, self.leftSpeed)
+        self.yp2 = append(self.yp2, self.totRightDist)
+        self.yv2 = append(self.yv2, self.rightSpeed)
+        self.t = append(self.t, self.x)
+        self.x += 0.3
+        self.p011.set_data(self.t, self.yp1)
+        self.p012.set_data(self.t, self.yp2)
+        self.p021.set_data(self.t, self.yv1)
+        self.p022.set_data(self.t, self.yv2)
+        
+        # Actualizing data
+        if self.yp1[-1] >= self.ymax - 40.00:
+            self.p011.axes.set_ylim(self.yp1[-1] - self.ymax + 40.0, self.yp1[-1] + 40.0)
+        if self.yp2[-1] >= self.ymax - 40.00:
+            self.p011.axes.set_ylim(self.yp2[-1] - self.ymax + 40.0, self.yp2[-1] + 40.0)
+        if self.yv1[-1] >= self.ymax - 40.00:
+            self.p021.axes.set_ylim(self.yv1[-1] - self.ymax + 40.0, self.yv1[-1] + 40.0)
+        if self.yv2[-1] >= self.ymax - 40.00:
+            self.p021.axes.set_ylim(self.yv2[-1] - self.ymax + 40.0, self.yv2[-1] + 40.0)
+        if self.x >= self.xmax - 1.00:
+            self.p011.axes.set_xlim(self.x - self.xmax + 1.0, self.x + 1.0)
+            self.p021.axes.set_xlim(self.x - self.xmax + 1.0, self.x + 1.0)
