@@ -10,14 +10,18 @@ from WheelEncoders import WheelEncoder
 from PlotData import multiplePlots
 import matplotlib.pyplot as plt
 
+# GPIO setup
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
+# Servo pins
 servos = [23, 24]
-raspi = pigpio.pi()
-samples = 5
 
-# Creation of two encoders using WheelEncoder class
+# Initialize pigpio
+raspi = pigpio.pi()
+
+# Number of samples and encoder setup
+samples = 5
 leftEncoderCount = WheelEncoder(11, 32, 5.65 / 2)
 rightEncoderCount = WheelEncoder(13, 32, 5.65 / 2)
 xmax = 5
@@ -28,6 +32,7 @@ def loopData(self):
     plotData.updateData()
     return plotData.p011, plotData.p012, plotData.p021, plotData.p022
 
+# Servo motor control functions
 def Left_forward(n):
     raspi.set_servo_pulsewidth(servos[0], n)
 
@@ -37,7 +42,6 @@ def Left_reverse():
 def Left_stop():
     raspi.set_servo_pulsewidth(servos[0], 0)
 
-# Value for servo speed forward now an argument that must be passed
 def Right_forward(n):
     raspi.set_servo_pulsewidth(servos[1], n)
 
@@ -47,7 +51,7 @@ def Right_reverse():
 def Right_stop():
     raspi.set_servo_pulsewidth(servos[1], 0)
 
-# Robot forward function takes two arguments for each motor's servo speed
+# Robot motion functions
 def Robot_forward(n, m):
     Left_forward(n)
     Right_forward(m)
@@ -76,46 +80,45 @@ def motorStop():
     for s in servos:
         raspi.set_servo_pulsewidth(s, 0)
 
-# Function for encoder output takes wheelEncoder object and a name for the encoder as arguments
+# Function for encoder output
 def Encoders(wheelEncoder, name):
     while True:
         dist = wheelEncoder.getCurrentDistance()
         totDist = wheelEncoder.getTotalDistance()
+        # Uncomment below for debugging encoder values
         # print("\n{} Distance: {}cm".format(name, dist))
         # print("\n{} Ticks: {}".format(name, wheelEncoder.getTicks()))
         # print("\n{} Total Distance: {}cm".format(name, totDist))
         # print("\n{} Total Ticks: {}".format(name, wheelEncoder.getTotalTicks()))
         time.sleep(0.01)
 
-# Create a function to move the robot, with 2 arguments
-# Remember to add the functions that you need from the previous codes,
-# such as Robot_forward() and Robot_stop()
+# Function to move the robot
 def moves(any, any2):
     # Wait for the graph to appear on the screen
     time.sleep(5)
 
-    Robot_forward(2500, 500)
+    Robot_forward(1280, 1280)
     time.sleep(5)
     Robot_right()
     time.sleep(1.2)
-    Robot_forward(2500, 500)
+    Robot_forward(1280, 1280)
     time.sleep(5)
     Robot_stop()
 
-# Create a thread to call this function
+# Create a thread to call the movement function
 movementThread = threading.Thread(target=moves, args=('anything', 'anything2'))
-# Start the thread
 movementThread.start()
 
-# Create an animation to plot the data, during 1 minute
+# Create an animation to plot the data
 simulation = animation.FuncAnimation(
     fig=plotData.f0, func=loopData, blit=False, frames=200, interval=20, repeat=False
 )
 
 # Plotting
 plt.show()
+
 print('terminou')
 plt.close()
 
 # Stop the Raspberry Pi
-raspi.stop()
+# raspi.stop()

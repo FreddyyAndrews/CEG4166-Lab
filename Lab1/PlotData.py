@@ -9,7 +9,7 @@ class multiplePlots:
     def __init__(self, leftEncoderCount, rightEncoderCount, samples, xmax):
         self.leftEncoderCount = leftEncoderCount
         self.rightEncoderCount = rightEncoderCount
-        self.samples = samples
+        self.samples = samples * 256
         self.xmax = xmax
         self.ymax = 200
         

@@ -11,7 +11,7 @@ class WheelEncoder:
 
     def __init__(self, inputPin, ticksPerTurn, radius):
         self.inputPin = inputPin
-        self.ticksPerTurn = ticksPerTurn
+        self.ticksPerTurn = ticksPerTurn * 256
         self.radius = radius
         self.setDistPerTick(self.ticksPerTurn, self.radius)
 
