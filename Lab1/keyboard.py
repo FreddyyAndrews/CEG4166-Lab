@@ -1,22 +1,44 @@
-import time, sys, tty, termios
+import time, sys, tty, termios, select
+import pigpio
+from motor_control import Motor_control
 
-# Function to capture keyboard input
+# Table 1: Keyboard Keys and Stingray Commands
+# W - Move forward one tile
+# D - Rotate 90 degrees clockwise
+# A - Rotate 90 degrees counter clockwise
+# Q - Exit program
+
 def getch():
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
-        tty.setraw(sys.stdin.fileno())
-        ch = sys.stdin.read(1)
+        tty.setraw(fd)
+        rlist, _, _ = select.select([sys.stdin], [], [], 0)
+        if rlist:
+            return sys.stdin.read(1).lower()
+        return None
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
+# Initialize motor controller
+pi = pigpio.pi()
+mc = Motor_control(pi=pi)
 
-while True:
-    # Capture keyboard input
-    char = getch()
-    if char == "w":
-        print("Char W pressed")
+try:
+    while True:
+        char = getch()
+        if char == 'w':
+            mc.straight(200)  # Move forward one tile (200mm)
+        elif char == 'd':
+            mc.turn(90)  # Rotate 90 degrees clockwise
+        elif char == 'a':
+            mc.turn(-90)  # Rotate 90 degrees counter-clockwise
+        elif char == 'q':
+            print("Exiting...")
+            break
 
-    # Exits Program
-    elif char == "s":
-        exit()
+        time.sleep(0.01)
+finally:
+    mc.servo_l.stop()
+    mc.servo_r.stop()
+    pi.stop()
+
