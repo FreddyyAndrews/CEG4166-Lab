@@ -10,9 +10,9 @@ class Motor_control:
         self, pi, width_robot=205, diameter_wheels=50, unitsFC=360,
         dcMin_l=27.3, dcMax_l=969.15,
         dcMin_r=27.3, dcMax_r=978.25,
-        l_wheel_gpio=16, r_wheel_gpio=20,
-        servo_l_gpio=17, min_pw_l=1280, max_pw_l=1720, min_speed_l=-1, max_speed_l=1,
-        servo_r_gpio=27, min_pw_r=1280, max_pw_r=1720, min_speed_r=-1, max_speed_r=1,
+        l_wheel_gpio=17, r_wheel_gpio=27,
+        servo_l_gpio=23, min_pw_l=600, max_pw_l=2400, min_speed_l=-1, max_speed_l=1,
+        servo_r_gpio=24, min_pw_r=600, max_pw_r=2400, min_speed_r=-1, max_speed_r=1,
         sampling_time=0.01,
         Kp_p=0.1
     ):
@@ -79,23 +79,85 @@ class Motor_control:
         arc_circle_mm = degree * math.pi * self.width_robot / 360.0
         return arc_circle_mm
 
-    def turn(self, degree):
-        number_ticks = self.arc_circle(degree) / self.tick_length()
-        return None
+    def turn(self, degree, turning_speed=0.5):
+        """
+        Turn the robot by a specified number of degrees.
+        Positive values turn right; negative values turn left.
+        This method uses encoder feedback from the left wheel to determine when the turn is complete.
+
+        Parameters:
+        degree (float): Degrees to turn (positive for right, negative for left).
+        turning_speed (float): Magnitude of turning speed (default 0.5).
+        """
+        if degree == 0:
+            return
+
+        # Calculate how many encoder ticks are required to achieve the desired turn.
+        # arc_circle returns the arc length (in mm) the wheel must travel for the turn,
+        # and tick_length returns the distance (in mm) per encoder tick.
+        required_ticks = abs(self.arc_circle(degree)) / self.tick_length()
+
+        # Get an initial encoder reading from the left wheel.
+        prev_angle = self.get_angle_l()
+        turns = 0
+        _, initial_total = self.get_total_angle(prev_angle, self.unitsFC, prev_angle, 0)
+        current_total = initial_total
+
+        # Set wheel speeds based on the desired turning direction.
+        # Note on wheel speed commands:
+        #   - In this design, set_speed_l calls servo_l.set_speed(-speed).
+        #   - For a right turn (degree > 0): left wheel must move forward (positive actual speed)
+        #     and right wheel must move in reverse (negative actual speed).
+        #   - For a left turn (degree < 0): left wheel must move in reverse (negative actual speed)
+        #     and right wheel must move forward (positive actual speed).
+        if degree > 0:
+            # Right turn: To get left wheel forward, call set_speed_l with -turning_speed (because it inverts).
+            # For right wheel, use -turning_speed to command reverse.
+            self.set_speed_l(-turning_speed)
+            self.set_speed_r(-turning_speed)
+        else:
+            # Left turn: left wheel should reverse and right wheel forward.
+            # Calling set_speed_l with turning_speed results in a negative actual speed (reverse) for left.
+            self.set_speed_l(turning_speed)
+            self.set_speed_r(turning_speed)
+
+        # Use a feedback loop to monitor the number of encoder ticks that have been accumulated.
+        # while abs(current_total - initial_total) < required_ticks:
+        #     print(f"Current total delta: {current_total - initial_total}, Required ticks: {required_ticks}")
+        #     current_angle = self.get_angle_l()
+        #     print(f"Current angle: {current_angle}")
+        #     # Update the cumulative tick count; get_total_angle takes into account wrapping.
+        #     turns, current_total = self.get_total_angle(current_angle, self.unitsFC, prev_angle, turns)
+        #     print(f"Current total: {current_total}, Turns: {turns}")
+        #     prev_angle = current_angle
+        #     time.sleep(self.sampling_time)
+        time.sleep(0.01)
+        # Once the desired tick count is reached, stop both wheels.
+        self.servo_l.stop()
+        self.servo_r.stop()
+
 
     def straight(self, distance_in_mm):
         number_ticks = distance_in_mm / self.tick_length()
         return None
 
 class Servo_read:
+
     def __init__(self, pi, gpio):
         self.pi = pi
         self.gpio = gpio
         self.period = 1 / 910 * 1000000
-        self.tick_high = None
-        self.duty_cycle = None
+        self.tick_high = self.compute_tick_high(tick_high=0)
         self.duty_scale = 1000
         self.pi.set_mode(gpio=self.gpio, mode=pigpio.INPUT)
+        self.duty_cycle = self.compute_duty_cycle(tick_high=self.tick_high)
+
+    def compute_tick_high(self, tick_high):
+        return tick_high
+
+    def compute_duty_cycle(self, tick_high):
+        self.duty_cycle = (tick_high / self.period) * self.duty_scale
+        return None
 
     def read(self):
         return self.duty_cycle
@@ -127,7 +189,7 @@ class Servo_write:
         self.pi.set_servo_pulsewidth(user_gpio=self.gpio, pulsewidth=pulse_width)
 
     def calc_pw_speed(self, speed):
-        pulse_width = self.slope * speed + self.offset
+        pulse_width = self.slope * speed * 100 + self.offset
         return pulse_width
 
     def calc_pw(self, degree):
@@ -136,7 +198,7 @@ class Servo_write:
 
     def set_speed(self, speed):
         speed = max(min(self.max_speed, speed), self.min_speed)
-        calculated_pw = self.calc_pw(speed=speed)
+        calculated_pw = self.calc_pw_speed(speed=speed)
         self.set_pw(pulse_width=calculated_pw)
 
     def stop(self):
@@ -163,10 +225,12 @@ class Servo_write:
 pi = pigpio.pi()
 
 def main():
-    left_servo = Servo_write(pi=pi, gpio=23)
-    left_servo.set_position(-60)
-    time.sleep(1)
-    left_servo.stop()
+    # Create an instance of Motor_control using the default parameters.
+    motor = Motor_control(pi=pi)
+    
+    # Call the turn method with 90 to turn 90 degrees to the right.
+    motor.turn(90)
+    
     pi.stop()
 
 if __name__ == "__main__":
