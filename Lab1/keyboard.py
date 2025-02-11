@@ -1,44 +1,55 @@
-import time, sys, tty, termios, select
+import sys, tty, termios, select
 import pigpio
+import RPi.GPIO as gpio
 from motor_control import Motor_control
 
-# Table 1: Keyboard Keys and Stingray Commands
-# W - Move forward one tile
-# D - Rotate 90 degrees clockwise
-# A - Rotate 90 degrees counter clockwise
-# Q - Exit program
-
-def getch():
-    fd = sys.stdin.fileno()
+def set_terminal_raw(fd):
     old_settings = termios.tcgetattr(fd)
-    try:
-        tty.setraw(fd)
-        rlist, _, _ = select.select([sys.stdin], [], [], 0)
-        if rlist:
-            return sys.stdin.read(1).lower()
-        return None
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    new_settings = termios.tcgetattr(fd)
+    # Disable canonical mode and echo.
+    new_settings[3] &= ~(termios.ECHO | termios.ICANON)
+    termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
+    return old_settings
+
+def restore_terminal(fd, settings):
+    termios.tcsetattr(fd, termios.TCSADRAIN, settings)
+
+def getch(timeout=0.1):
+    fd = sys.stdin.fileno()
+    rlist, _, _ = select.select([sys.stdin], [], [], timeout)
+    if rlist:
+        return sys.stdin.read(1).lower()
+    return None
+
 # Initialize motor controller
 pi = pigpio.pi()
 mc = Motor_control(pi=pi)
 
-try:
-    while True:
-        char = getch()
-        if char == 'w':
-            mc.straight(200)  # Move forward one tile (200mm)
-        elif char == 'd':
-            mc.turn(90)  # Rotate 90 degrees clockwise
-        elif char == 'a':
-            mc.turn(-90)  # Rotate 90 degrees counter-clockwise
-        elif char == 'q':
-            print("Exiting...")
-            break
-
-        time.sleep(0.01)
-finally:
-    mc.servo_l.stop()
-    mc.servo_r.stop()
-    pi.stop()
-
+if __name__ == "__main__":
+    fd = sys.stdin.fileno()
+    old_settings = set_terminal_raw(fd)
+    try:
+        while True:
+            char = getch()
+            if char:
+                if char == 'w':
+                    print("Moving forward...")
+                    mc.straight(200)
+                    # Call your movement function here.
+                elif char == 'd':
+                    print("Turning right...")
+                    mc.turn(90)
+                    # Call your turning function here.
+                elif char == 'a':
+                    print("Turning left...")
+                    mc.turn(-90)
+                    # Call your turning function here.
+                elif char == 'q':
+                    print("Exiting...")
+                    break
+            # Your loop delay
+    finally:
+        mc.servo_l.stop()
+        mc.servo_r.stop()
+        pi.stop()
+        restore_terminal(fd, old_settings)

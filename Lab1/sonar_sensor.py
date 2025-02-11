@@ -37,7 +37,7 @@ def Sweep(pulse_width: int, direction: bool):
         print("got there")
         direction = True
 
-    raspi.set_servo_pulsewidth(23, pulse_width)
+    raspi.set_servo_pulsewidth(25, pulse_width)
     return pulse_width, direction
 
 if __name__ == "__main__":

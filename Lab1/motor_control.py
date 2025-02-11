@@ -114,12 +114,12 @@ class Motor_control:
             # Right turn: To get left wheel forward, call set_speed_l with -turning_speed (because it inverts).
             # For right wheel, use -turning_speed to command reverse.
             self.set_speed_l(-turning_speed)
-            self.set_speed_r(-turning_speed)
+            self.set_speed_r(turning_speed)
         else:
             # Left turn: left wheel should reverse and right wheel forward.
             # Calling set_speed_l with turning_speed results in a negative actual speed (reverse) for left.
             self.set_speed_l(turning_speed)
-            self.set_speed_r(turning_speed)
+            self.set_speed_r(-turning_speed)
 
         # Use a feedback loop to monitor the number of encoder ticks that have been accumulated.
         # while abs(current_total - initial_total) < required_ticks:
@@ -131,14 +131,17 @@ class Motor_control:
         #     print(f"Current total: {current_total}, Turns: {turns}")
         #     prev_angle = current_angle
         #     time.sleep(self.sampling_time)
-        time.sleep(0.01)
+        time.sleep(0.1)
         # Once the desired tick count is reached, stop both wheels.
         self.servo_l.stop()
         self.servo_r.stop()
 
-
     def straight(self, distance_in_mm):
-        number_ticks = distance_in_mm / self.tick_length()
+        self.set_speed_l(0.5)
+        self.set_speed_r(0.5)
+        time.sleep(0.1)
+        self.servo_l.stop()
+        self.servo_r.stop()
         return None
 
 class Servo_read:
@@ -156,8 +159,7 @@ class Servo_read:
         return tick_high
 
     def compute_duty_cycle(self, tick_high):
-        self.duty_cycle = (tick_high / self.period) * self.duty_scale
-        return None
+        return (tick_high / self.period) * self.duty_scale
 
     def read(self):
         return self.duty_cycle
