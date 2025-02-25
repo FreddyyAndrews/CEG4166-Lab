@@ -34,7 +34,7 @@ if __name__ == "__main__":
             if char:
                 if char == 'w':
                     print("Moving forward...")
-                    mc.straight(200)
+                    mc.straight(500)
                     # Call your movement function here.
                 elif char == 'd':
                     print("Turning right...")
@@ -43,6 +43,10 @@ if __name__ == "__main__":
                 elif char == 'a':
                     print("Turning left...")
                     mc.turn(-90)
+                    # Call your turning function here.
+                elif char == 's':
+                    print("Moving backward...")
+                    mc.straight(-500)
                     # Call your turning function here.
                 elif char == 'q':
                     print("Exiting...")
