@@ -1,0 +1,9 @@
+Real Time Lab
+- Not in a pyenv
+- global installs for everything python library
+- start the daemon without the sudo su - (sudo systemctl start pigpiod)
+
+Modern Control
+- Tables for output voltage as a function of input voltage for specific frequencies (100hz)
+- We can show graphs instead
+- Show closed loop and open loop

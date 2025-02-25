@@ -136,14 +136,14 @@ class Motor_control:
         self.servo_l.stop()
         self.servo_r.stop()
 
-    def straight(self, distance_in_mm):
-        self.set_speed_l(0.5)
-        self.set_speed_r(0.5)
+    def straight(self, speed):
+        self.set_speed_l()
+        self.set_speed_r(speed)
         time.sleep(0.1)
         self.servo_l.stop()
         self.servo_r.stop()
         return None
-
+    
 class Servo_read:
 
     def __init__(self, pi, gpio):
