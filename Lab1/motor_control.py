@@ -113,12 +113,12 @@ class Motor_control:
         arc_circle_mm = degree * math.pi * self.width_robot / 360.0
         return arc_circle_mm
 
-    def turn_left(self, turning_speed=0.5):
+    def turn_left(self, turning_speed=200):
         self.set_speed_l(-turning_speed)
         self.set_speed_r(turning_speed)
         return None
 
-    def turn_right(self, turning_speed=0.5):
+    def turn_right(self, turning_speed=200):
         self.set_speed_l(turning_speed)
         self.set_speed_r(-turning_speed)
         return None
