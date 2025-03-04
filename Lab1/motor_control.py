@@ -139,9 +139,6 @@ class Motor_control:
     def straight(self, speed):
         self.set_speed_l()
         self.set_speed_r(speed)
-        time.sleep(0.1)
-        self.servo_l.stop()
-        self.servo_r.stop()
         return None
     
 class Servo_read:

@@ -39,6 +39,17 @@ def Sweep(pulse_width: int, direction: bool):
 
     raspi.set_servo_pulsewidth(25, pulse_width)
     return pulse_width, direction
+def MoveCenter():
+    raspi.set_servo_pulsewidth(25, 1600)
+    return None
+
+def MoveRight():
+    raspi.set_servo_pulsewidth(25, 700)
+    return None
+
+def MoveLeft():
+    raspi.set_servo_pulsewidth(25, 2500)
+    return None
 
 if __name__ == "__main__":
     sensorThread = threading.Thread(target=Sonar, args=(sensor, samples))

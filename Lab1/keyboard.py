@@ -2,6 +2,7 @@ import sys, tty, termios, select
 import pigpio
 import RPi.GPIO as gpio
 from motor_control import Motor_control
+from sonar_sensor import *
 
 def set_terminal_raw(fd):
     old_settings = termios.tcgetattr(fd)
@@ -39,16 +40,33 @@ if __name__ == "__main__":
                 elif char == 'd':
                     print("Turning right...")
                     mc.turn(90)
-                    # Call your turning function here.
                 elif char == 'a':
                     print("Turning left...")
                     mc.turn(-90)
-                    # Call your turning function here.
                 elif char == 's':
                     print("Moving backward...")
                     mc.straight(-500)
-                    # Call your turning function here.
-                elif char == 'q':
+                elif char == 'x':
+                    print("Stopping Wheels...")
+                    mc.straight(0)
+                elif char == 'k':
+                    print("Moving sonar to center...")
+                    MoveCenter()
+                elif char == 'l':
+                    print("Moving sonar to right...")
+                    MoveRight()
+                elif char == 'j':
+                    print("Moving sonar to left...")
+                    MoveLeft()
+                elif char == 'm':
+                    print("Sweepping sonar...")
+                    Sonar(sensor, samples)
+                    MoveLeft()
+                elif char == 'p':
+                    samples = 5
+                    #creation of sonar sensor
+                    sensor = HCSR04(7, 12)
+                    mc.straight(0)
                     print("Exiting...")
                     break
             # Your loop delay
