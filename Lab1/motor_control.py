@@ -137,7 +137,7 @@ class Motor_control:
         self.servo_r.stop()
 
     def straight(self, speed):
-        self.set_speed_l()
+        self.set_speed_l(speed)
         self.set_speed_r(speed)
         return None
     
