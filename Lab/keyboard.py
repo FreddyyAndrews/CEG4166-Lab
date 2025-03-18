@@ -37,6 +37,12 @@ if __name__ == "__main__":
         while True:
             char = getch()
             if char:
+                if char == "r":
+                    print("reading...")
+                    read()
+                if char == "p":
+                    print("Exiting...")
+                    sys.exit()
                 if char == "w":
                     print("Moving forward...")
                     mc.straight(500)
@@ -66,13 +72,6 @@ if __name__ == "__main__":
                     print("Sweepping sonar...")
                     Sonar(sensor, samples)
                     MoveLeft()
-                elif char == "p":
-                    samples = 5
-                    # creation of sonar sensor
-                    sensor = HCSR04(7, 12)
-                    mc.straight(0)
-                    print("Exiting...")
-                    break
             # Your loop delay
     finally:
         mc.servo_l.stop()

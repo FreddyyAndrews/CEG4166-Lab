@@ -1,25 +1,28 @@
 from hcsr04 import HCSR04
-import pigpio
-import RPi.GPIO as GPIO
-import threading
 import time
+import threading
+import RPi.GPIO as GPIO
 
 samples = 5
-#creation of sonar sensor
+# creation of sonar sensor
 sensor = HCSR04(7, 12)
 
-raspi = pigpio.pi()
+# Setup for servo
+servo_pin = 22  # Change as needed for your setup
+GPIO.setup(servo_pin, GPIO.OUT)
+pwm = GPIO.PWM(servo_pin, 50)  # 50Hz frequency
+pwm.start(7.5)  # Start at center position
+pulse_width = 1600  # Initial pulse width
+direction = True  # Initial direction
 
 # Function for sonar sensor takes HCSR04 object and sample number for accuracy of distance
 def Sonar(sensor, samples):
-    current_pulse_width: int = 2500
-    direction: bool = False
-
-    while True:
+    while(True):
         s = time.time()
         distance = sensor.measure(samples, "cm")
         e = time.time()
-        current_pulse_width, direction = Sweep(current_pulse_width, direction)
+        print("Distance:", distance, "cm")
+        print("Used time:", (e - s), "seconds")
         time.sleep(0.01)
 
 def Sweep(pulse_width: int, direction: bool):
@@ -37,21 +40,28 @@ def Sweep(pulse_width: int, direction: bool):
         print("got there")
         direction = True
 
-    raspi.set_servo_pulsewidth(25, pulse_width)
+    # Convert pulse width to duty cycle
+    duty_cycle = pulse_width / 20000 * 100  # Assuming 20ms period for 50Hz
+    pwm.ChangeDutyCycle(duty_cycle)
     return pulse_width, direction
+
 def MoveCenter():
-    raspi.set_servo_pulsewidth(25, 1600)
+    pwm.ChangeDutyCycle(8)  # Adjust duty cycle for center position
+    read()
     return None
 
 def MoveRight():
-    raspi.set_servo_pulsewidth(25, 700)
+    pwm.ChangeDutyCycle(3.5)  # Adjust duty cycle for right position
+    read()
     return None
 
 def MoveLeft():
-    raspi.set_servo_pulsewidth(25, 2500)
+    pwm.ChangeDutyCycle(12.5)  # Adjust duty cycle for left position
+    read()
     return None
 
-if __name__ == "__main__":
-    sensorThread = threading.Thread(target=Sonar, args=(sensor, samples))
-    sensorThread.start()
+def read():
+    time.sleep(1)  # Adjust delay as needed
+    distance = sensor.measure(samples, "cm")
+    print(f"Distance: {distance} cm")
 

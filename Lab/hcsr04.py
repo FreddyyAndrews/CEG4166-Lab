@@ -1,6 +1,7 @@
 import RPi.GPIO as gpio
 import time
 
+
 class HCSR04:
     # Encapsulates the attributes and methods to use the HC-SR04 ultra-sound distance sensor
     trig = 0
@@ -31,7 +32,6 @@ class HCSR04:
         pulse_start = 0
         pulse_end = 0
         acc = 0
-
         while count < samples:
             gpio.output(self.trig, True)
             time.sleep(0.00001)
@@ -41,18 +41,17 @@ class HCSR04:
                 pulse_start = time.time()
             while gpio.input(self.echo) == 1:
                 pulse_end = time.time()
-
             pulse_duration = pulse_end - pulse_start
-
-            if unit == "cm":
+            
+            if(unit == "cm"):
                 distance = pulse_duration * self.const_cm
-            elif unit == "in":
+            elif(unit == "in"):
                 distance = pulse_duration * self.const_in
-            elif unit == "ft":
+            elif(unit == "ft"):
                 distance = pulse_duration * self.const_ft
 
             acc += distance
             count += 1
-
+            
         acc = round(acc / samples, 2)
         return acc
