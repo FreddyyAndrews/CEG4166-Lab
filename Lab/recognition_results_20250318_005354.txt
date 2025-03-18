@@ -1,0 +1,626 @@
+Face Recognition Analysis Results - 2025-03-18 00:53:54
+================================================================================
+
+Total images to analyze: 120
+--------------------------------------------------------------------------------
+
+Image: train_set\1\IMG_6359.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6360.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6361.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6364.jpg
+  Expected: Frederick
+  Faces detected: 2
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6365.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6367.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6369.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6370.jpg
+  Expected: Frederick
+  Faces detected: 3
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+  Face #3: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6371.jpg
+  Expected: Frederick
+  Faces detected: 3
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+  Face #3: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6372.jpg
+  Expected: Frederick
+  Faces detected: 3
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+  Face #3: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6373.jpg
+  Expected: Frederick
+  Faces detected: 2
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6374.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6375.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6376.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6377.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6378.jpg
+  Expected: Frederick
+  Faces detected: 4
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+  Face #3: Frederick (100.00%) - CORRECT
+  Face #4: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6379.jpg
+  Expected: Frederick
+  Faces detected: 2
+  Face #1: Frederick (100.00%) - CORRECT
+  Face #2: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6380.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6381.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6382.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6383.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6384.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6385.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6386.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6387.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6388.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\IMG_6389.jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\1\unnamed (7).jpg
+  Expected: Frederick
+  Faces detected: 1
+  Face #1: Frederick (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1079.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1083.jpg
+  Expected: Josué
+  Faces detected: 2
+  Face #1: Josué (100.00%) - CORRECT
+  Face #2: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1086.jpg
+  Expected: Josué
+  Result: No face detected
+
+Image: train_set\2\IMG_1087.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1088.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1089.jpg
+  Expected: Josué
+  Result: No face detected
+
+Image: train_set\2\IMG_1090.jpg
+  Expected: Josué
+  Faces detected: 2
+  Face #1: Josué (100.00%) - CORRECT
+  Face #2: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1091.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1092.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1093.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1094.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1095.jpg
+  Expected: Josué
+  Faces detected: 2
+  Face #1: Josué (100.00%) - CORRECT
+  Face #2: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1096.jpg
+  Expected: Josué
+  Result: No face detected
+
+Image: train_set\2\IMG_1097.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\2\IMG_1098.jpg
+  Expected: Josué
+  Faces detected: 1
+  Face #1: Josué (100.00%) - CORRECT
+
+Image: train_set\3\IMG_7893.jpg
+  Expected: Mouad
+  Faces detected: 2
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7894.jpg
+  Expected: Mouad
+  Faces detected: 2
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7895.jpg
+  Expected: Mouad
+  Faces detected: 3
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+  Face #3: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7896.jpg
+  Expected: Mouad
+  Faces detected: 6
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+  Face #3: Mouad (95.00%) - CORRECT
+  Face #4: Mouad (95.00%) - CORRECT
+  Face #5: Mouad (95.00%) - CORRECT
+  Face #6: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7897.jpg
+  Expected: Mouad
+  Faces detected: 3
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+  Face #3: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7898.jpg
+  Expected: Mouad
+  Faces detected: 5
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+  Face #3: Mouad (95.00%) - CORRECT
+  Face #4: Mouad (95.00%) - CORRECT
+  Face #5: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7899.jpg
+  Expected: Mouad
+  Faces detected: 4
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+  Face #3: Mouad (95.00%) - CORRECT
+  Face #4: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\IMG_7900.jpg
+  Expected: Mouad
+  Faces detected: 5
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+  Face #3: Mouad (95.00%) - CORRECT
+  Face #4: Mouad (95.00%) - CORRECT
+  Face #5: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_14_56_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_14_56_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_14_58_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_14_58_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_14_59_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_14_59_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_00_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_00_Pro (3).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_00_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_01_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_01_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_02_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 2
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_02_Pro (3).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_02_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_03_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_03_Pro (3).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_03_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_04_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_05_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_05_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_06_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_06_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_07_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_08_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_08_Pro (3).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_08_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_10_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_11_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_12_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_12_Pro (3).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_12_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_30_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_32_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_32_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_33_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_15_35_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_15_36_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_27_57_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_27_58_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_27_58_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_27_59_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_27_59_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_00_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_00_Pro (3).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_00_Pro (4).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_00_Pro.jpg
+  Expected: Mouad
+  Faces detected: 2
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_01_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_02_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_02_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_03_Pro.jpg
+  Expected: Mouad
+  Faces detected: 2
+  Face #1: Mouad (95.00%) - CORRECT
+  Face #2: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_04_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_04_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_08_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_09_Pro (2).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_09_Pro (3).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_09_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_10_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_10_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_11_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_11_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_12_Pro (2).jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_12_Pro (3).jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_12_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_13_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_14_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_16_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_17_Pro.jpg
+  Expected: Mouad
+  Result: No face detected
+
+Image: train_set\3\WIN_20250317_23_28_18_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+Image: train_set\3\WIN_20250317_23_28_20_Pro.jpg
+  Expected: Mouad
+  Faces detected: 1
+  Face #1: Mouad (95.00%) - CORRECT
+
+
+================================================================================
+RESULTS SUMMARY
+================================================================================
+
+Frederick: 28/28 correct (100.00%), Avg Confidence: 100.00%
+Josué: 12/15 correct (80.00%), Avg Confidence: 100.00%
+Mouad: 49/77 correct (63.64%), Avg Confidence: 95.00%
+
+Overall: 89/120 correct (74.17%), Avg Confidence: 97.25%
+Model Score: C (Average)
