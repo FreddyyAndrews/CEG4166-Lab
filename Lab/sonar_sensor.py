@@ -15,6 +15,12 @@ pwm.start(7.5)  # Start at center position
 pulse_width = 1600  # Initial pulse width
 direction = True  # Initial direction
 
+# Define positions
+POSITION_CENTER = 7.0
+POSITION_RIGHT = 0.5
+POSITION_LEFT = 12.5
+current_position = POSITION_CENTER  # Track current position
+
 # Function for sonar sensor takes HCSR04 object and sample number for accuracy of distance
 def Sonar(sensor, samples):
     while(True):
@@ -33,10 +39,10 @@ def Sweep(pulse_width: int, direction: bool):
 
     print(pulse_width)
 
-    if pulse_width >= 2495:
+    if pulse_width >= 2395:
         print("Got here")
         direction = False
-    if pulse_width <= 705:
+    if pulse_width <= 605:
         print("got there")
         direction = True
 
@@ -46,17 +52,29 @@ def Sweep(pulse_width: int, direction: bool):
     return pulse_width, direction
 
 def MoveCenter():
-    pwm.ChangeDutyCycle(8)  # Adjust duty cycle for center position
+    global current_position
+    if current_position != POSITION_CENTER:
+        pwm.ChangeDutyCycle(POSITION_CENTER)
+        current_position = POSITION_CENTER
+        time.sleep(0.5)  # Allow servo to settle
     read()
     return None
 
 def MoveRight():
-    pwm.ChangeDutyCycle(3.5)  # Adjust duty cycle for right position
+    global current_position
+    if current_position != POSITION_RIGHT:
+        pwm.ChangeDutyCycle(POSITION_RIGHT)
+        current_position = POSITION_RIGHT
+        time.sleep(0.5)  # Allow servo to settle
     read()
     return None
 
 def MoveLeft():
-    pwm.ChangeDutyCycle(12.5)  # Adjust duty cycle for left position
+    global current_position
+    if current_position != POSITION_LEFT:
+        pwm.ChangeDutyCycle(POSITION_LEFT)
+        current_position = POSITION_LEFT
+        time.sleep(0.5)  # Allow servo to settle
     read()
     return None
 
